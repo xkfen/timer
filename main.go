@@ -10,13 +10,13 @@ func main (){
 func startTimer()  {
 	var tasks []*task.TimeTask
 	tasks = append(tasks, demoTimerTask())
-	cfg.StartSchedule(tasks, false)
+	task.StartSchedule(tasks, false)
 }
 
 var demoTimer *task.TimeTask
 func demoTimerTask() *task.TimeTask {
 	if demoTimer == nil {
-		demoTimer = &cfg.SwTask{
+		demoTimer = &task.TimeTask{
 			Name:"updateRedisDay",
 			Run:service.UpdateDays, // 具体的业务逻辑
 			Spec:"0 0 24 * * ?", // 触发时间
