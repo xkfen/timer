@@ -10,6 +10,7 @@ func main (){
 func startTimer()  {
 	var tasks []*task.TimeTask
 	tasks = append(tasks, demoTimerTask())
+	// 如果是单独的timer服务，传false表示同步运行。传true表示异步运行，还可以在main里面调用其他的服务
 	task.StartSchedule(tasks, false)
 }
 
